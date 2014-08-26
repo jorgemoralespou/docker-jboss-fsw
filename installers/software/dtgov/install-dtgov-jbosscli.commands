@@ -1,0 +1,2 @@
+/socket-binding-group=standard-sockets/remote-destination-outbound-socket-binding=mail-smtp:write-attribute(name=host,value="${env.MAIL_PORT_25_TCP_ADDR:localhost}")
+/socket-binding-group=standard-sockets/remote-destination-outbound-socket-binding=mail-smtp:write-attribute(name=port,value="${env.MAIL_PORT_25_TCP_PORT:25}")

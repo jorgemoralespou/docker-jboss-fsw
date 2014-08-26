@@ -1,0 +1,20 @@
+#
+# Requirements is that the workflow artifact dtgov-workflows-1.0.1.Final-redhat-8.jar is located in a volume under /software
+#
+# s-ramp:connect http://localhost:8080/s-ramp-server admin admin123!
+# s-ramp:upload  /software/dtgov-workflows-1.0.1.Final-redhat-8.jar KieJarArchive
+# s-ramp:property set maven.groupId org.overlord.dtgov
+# s-ramp:property set maven.artifactId dtgov-workflows
+# s-ramp:property set maven.version 1.0.1.Final-redhat-8
+# s-ramp:property set maven.type jar
+# s-ramp:updateMetaData
+# quit
+connect http://localhost:8080/s-ramp-server admin admin123!
+upload /software/dtgov/dtgov-workflows-1.0.1.Final-redhat-8.jar KieJarArchive
+property set maven.artifactId dtgov-workflows
+property set maven.groupId org.overlord.dtgov
+#property set maven.hash.md5 7546f58171df5415c61d94531d962b91
+#property set maven.hash.sha1 b9cc48ba4a3fd308908778f18f20fc0d6ba4bcd4
+property set maven.type jar
+property set maven.version 1.0.1.Final-redhat-8
+updateMetaData

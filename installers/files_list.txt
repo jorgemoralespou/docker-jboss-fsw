@@ -1,0 +1,41 @@
+.
+|-- build.sh
+|-- Dockerfile
+|-- files_list.txt
+|-- README.md
+`-- software
+    |-- dtgov
+    |   |-- dtgov-workflows-1.0.1.Final-redhat-8.jar
+    |   |-- install-dtgov-jbosscli.commands
+    |   |-- install-dtgov.sh
+    |   |-- install-dtgov.xml
+    |   |-- install-dtgov.xml.variables
+    |   `-- s-ramp-workflow.commands
+    |-- fsw
+    |   |-- install-fsw.sh
+    |   |-- install-fsw.xml
+    |   `-- install-fsw.xml.variables
+    |-- jboss-fsw-installer-6.0.0.GA-redhat-4.jar
+    |-- patchsets
+    |   `-- BZ-1085860
+    |       |-- fsw-6.0_2_2014-base.zip
+    |       |-- fsw-6.0_2_2014-dtgov.zip
+    |       |-- fsw-6.0_2_2014-rtgov-server.zip
+    |       |-- fsw-6.0_2_2014-s-ramp.zip
+    |       |-- fsw-6.0_2_2014-switchyard.zip
+    |       |-- README.txt
+    |       |-- removed-list-base.txt
+    |       |-- removed-list-dtgov.txt
+    |       |-- removed-list-rtgov-server.txt
+    |       |-- removed-list-s-ramp.txt
+    |       `-- removed-list-switchyard.txt
+    |-- rtgov
+    |   |-- install-rtgov.sh
+    |   |-- install-rtgov.xml
+    |   `-- install-rtgov.xml.variables
+    `-- sy
+        |-- install-sy.sh
+        |-- install-sy.xml
+        `-- install-sy.xml.variables
+
+7 directories, 31 files
