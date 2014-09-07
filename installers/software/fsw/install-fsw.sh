@@ -6,8 +6,8 @@ PATCH="BZ-1085860"
 ROLLUP="6.0_2_2014"
 unzip -o ${DIR}/../patchsets/${PATCH}/fsw-${ROLLUP}-base.zip -d /home/jboss
 unzip -o ${DIR}/../patchsets/${PATCH}/fsw-${ROLLUP}-dtgov.zip -d /home/jboss
-unzip -o ${DIR}/../patchsets/${PATCH}/fsw-${ROLLUP}-rtgov-s.zip -d /home/jboss
-unzip -o ${DIR}/../patchsets/${PATCH}/fsw-${ROLLUP}-sramp.zip -d /home/jboss
+unzip -o ${DIR}/../patchsets/${PATCH}/fsw-${ROLLUP}-rtgov-server.zip -d /home/jboss
+unzip -o ${DIR}/../patchsets/${PATCH}/fsw-${ROLLUP}-s-ramp.zip -d /home/jboss
 unzip -o ${DIR}/../patchsets/${PATCH}/fsw-${ROLLUP}-switchyard.zip -d /home/jboss
 
 #

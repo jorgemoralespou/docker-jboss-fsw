@@ -1,6 +1,6 @@
 #
 #
-FROM jboss/fsw_base:6.0.0
+FROM jmorales/fsw_base:6.0.2
 MAINTAINER jmorales <jmorales@redhat.com>
 
 # Add EAP_HOME environment variable, to easily upgrade the script for different EAP versions
