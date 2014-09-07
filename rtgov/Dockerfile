@@ -1,7 +1,7 @@
 #
 #
 #
-FROM jmorales/fsw_sy_base:6.0.2
+FROM jmorales/fsw_rtgov_base:6.0.2
 MAINTAINER jmorales <jmorales@redhat.com>
 
 # Add EAP_HOME environment variable, to easily upgrade the script for different EAP versions
@@ -12,10 +12,6 @@ RUN echo "JAVA_OPTS=\"\$JAVA_OPTS -Djboss.bind.address=0.0.0.0 -Djboss.bind.addr
 
 # Add volume if you want to externalize logs
 VOLUME ${EAP_HOME}/standalone/logs
-
-# Add 2 volumes to test file bindings
-VOLUME /input
-VOLUME /output
 
 # Expose the required port
 EXPOSE 8080 9990 9999 8787
