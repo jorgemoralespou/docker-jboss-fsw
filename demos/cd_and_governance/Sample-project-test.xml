@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="PaymentService" resourceRoot="${projectDir}" soapui-version="4.6.3" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="PaymentSOAPBinding" type="wsdl" bindingName="{http://ws.camelcookbook.org/payment-service}PaymentSOAPBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/payment/PaymentService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/payment/PaymentService?wsdl"><con:part><con:url>http://localhost:8080/payment/PaymentService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="wsdl-first" targetNamespace="http://ws.camelcookbook.org/payment-service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:typens="http://ws.camelcookbook.org/payment-service/types" xmlns:tns="http://ws.camelcookbook.org/payment-service" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://ws.camelcookbook.org/payment-service/types">
+      <xsd:element name="transferRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="bank" type="xsd:string"/>
+            <xsd:element name="from" type="xsd:string"/>
+            <xsd:element name="to" type="xsd:string"/>
+            <xsd:element name="amount" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="transferResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="reply" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="TransferResponse">
+    <wsdl:part element="typens:transferResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TransferRequest">
+    <wsdl:part element="typens:transferRequest" name="payload"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="FaultMessage"></wsdl:message>
+  <wsdl:portType name="Payment">
+    <wsdl:operation name="transferFunds">
+      <wsdl:input message="tns:TransferRequest"></wsdl:input>
+      <wsdl:output message="tns:TransferResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PaymentSOAPBinding" type="tns:Payment">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="transferFunds">
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PaymentService">
+    <wsdl:port binding="tns:PaymentSOAPBinding" name="PaymentPort">
+      <soap:address location="http://19bab1c3acf0:8080/payment/PaymentService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8090/headersinrestbinding/rest/</con:endpoint><con:endpoint>http://localhost:8091/headersinrestbinding/rest/</con:endpoint><con:endpoint>http://localhost:8092/headersinrestbinding/rest/</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="transferFunds" bindingOperationName="transferFunds" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="MyHeader" value="test"/>
+  &lt;con:entry key="custom" value="hello"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8092/headersinrestbinding/rest/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://ws.camelcookbook.org/payment-service/types">
+   <soapenv:Header>
+	<typ:amount>1000</typ:amount>
+   </soapenv:Header>
+   <soapenv:Body>
+      <typ:transferRequest>
+         <typ:bank>My Bank</typ:bank>
+         <typ:from>Jorge</typ:from>
+         <typ:to>Another person</typ:to>
+         <typ:amount>1000</typ:amount>
+      </typ:transferRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.camelcookbook.org/payment-service/Payment/transferFundsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="request" name="Test Request"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PaymentSOAPBinding</con:interface><con:operation>transferFunds</con:operation><con:request name="Test Request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8090/headersinrestbinding/rest/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://ws.camelcookbook.org/payment-service/types">
+   <soapenv:Header>
+	<typ:amount>1000</typ:amount>
+   </soapenv:Header>
+   <soapenv:Body>
+      <typ:transferRequest>
+         <typ:bank>My Bank</typ:bank>
+         <typ:from>Jorge</typ:from>
+         <typ:to>Another person</typ:to>
+         <typ:amount>1000</typ:amount>
+      </typ:transferRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings/><con:threadCount>1</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type><con:config><testDelay>0</testDelay><randomFactor>0.0</randomFactor></con:config></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>

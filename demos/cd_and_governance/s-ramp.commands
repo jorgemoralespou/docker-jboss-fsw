@@ -1,0 +1,14 @@
+connect http://localhost:8190/s-ramp-server admin admin123!
+upload soap-headers-and-body-0.0.1-SNAPSHOT.pom MavenDeploymentDescriptor
+property set maven.artifactId soap-headers-and-body
+property set maven.groupId com.example.switchyard
+property set maven.type pom
+property set maven.version 0.0.1-SNAPSHOT
+updateMetaData
+upload soap-headers-and-body-0.0.1-SNAPSHOT.jar SwitchYardApplication
+property set maven.artifactId soap-headers-and-body
+property set maven.groupId com.example.switchyard
+property set maven.type jar
+property set maven.version 0.0.1-SNAPSHOT
+updateMetaData
+
