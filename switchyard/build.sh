@@ -4,6 +4,12 @@ FSW_VERSION=6.0.2
 #
 # We delete intermediate containers to get minimal size
 #
+if [[ "$(docker images | grep jmorales/fsw_installers | wc -l)" == 0 ]]
+then
+   echo "No image with the installers. Build it and then come back"
+   exit 255
+fi
+
 docker run -it -v /software --name fsw_installers jmorales/fsw_installers:${FSW_VERSION} echo "Installers volume ready"
 docker run -it --name "sy_install" --volumes-from fsw_installers jmorales/jboss-base /software/sy/install-sy.sh
 #
