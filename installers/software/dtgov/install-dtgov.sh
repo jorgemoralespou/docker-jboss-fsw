@@ -11,7 +11,7 @@ unzip -o ${DIR}/../patchsets/${PATCH}/fsw-${ROLLUP}-dtgov.zip -d /home/jboss
 # unzip -o ${DIR}/../patchsets/${PATCH}/fsw-${ROLLUP}-switchyard.zip -d /home/jboss
 
 ###
-# Customize configuration for DTGov
+# BEGIN - Customize configuration for DTGov
 #
 PROFILE="standalone.xml"
 JBOSS_CONSOLE_LOG=jboss-setup-console.log
@@ -59,3 +59,7 @@ fi
 # And we can shutdown the system using the CLI.
 echo "Shutting down JBoss EAP."
 /home/jboss/jboss-eap-6.1/bin/jboss-cli.sh -c ":shutdown"
+#
+# END - Customize configuration for DTGov
+###
+
